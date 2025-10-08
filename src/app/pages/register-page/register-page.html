@@ -1,0 +1,55 @@
+<div id="container" class="card">
+  <form class="data-picker" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <h1 class="container-title">Registrarse</h1>
+    <div class="input-container">
+      <label for="email">Correo electronico</label>
+      <input class="input-box" id="email" name="email" type="email" id="email" ngModel #email="ngModel" required="true" autocomplete="email">
+      @if (email.invalid && !email.pristine) {
+        <p class="error">Debe colocar un correo electrónico.</p>
+      }
+    </div>
+  
+
+    <div class="input-container">
+      <label for="firstName">Nombre</label>
+      <input class="input-box" id="firstName" name="firstName" type="text" id="firstName" ngModel #email="ngModel" required="true">
+      @if (email.invalid && !email.pristine) {
+        <p class="error">Debe colocar un nombre.</p>
+      }
+    </div>
+
+    <div class="input-container">
+      <label for="lastName">Apellido</label>
+      <input class="input-box" id="lastName" name="lastName" type="text" id="lastName" ngModel #email="ngModel" required="true">
+      @if (email.invalid && !email.pristine) {
+        <p class="error">Debe colocar un apellido.</p>
+      }
+    </div>
+
+    <div class="input-container">
+      <label for="password">Contraseña</label>
+      <input class="input-box" id="password" name="password" type="password" ngModel #password="ngModel" minlength="4">
+      @if (password.invalid && !password.pristine) {
+        <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
+      }
+    </div>
+    <div class="input-container">
+      <label for="password">Repite la contraseña</label>
+      <input class="input-box" id="password2" name="password2" type="password" ngModel #password2="ngModel" minlength="4">
+      @if (password.invalid && !password.pristine) {
+        <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
+      }
+    </div>
+    <button class="button-box">Iniciar sesión</button>
+    @if (isLoading){
+    <app-spinner class="spinner"></app-spinner>}
+    
+    @if (errorRegister) {
+      <p class="error">Error indeterminado, intente nuevamente.</p>
+    } 
+    <p>Ya tenés cuenta? <a routerLink="/login">Inicia sesion</a>
+    </p>
+    <a routerLink="/">Home</a>
+  </form>
+
+</div>

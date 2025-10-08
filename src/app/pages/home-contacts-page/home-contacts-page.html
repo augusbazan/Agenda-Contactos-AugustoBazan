@@ -1,0 +1,75 @@
+<h2 class="section-title">Inicio</h2>
+
+<div>
+    <nav class="home-nav">
+        <a routerLink="contact/:id">Detalles de contactos</a>
+    </nav>
+</div>
+
+<div class="contact-container">
+    <div class= "contact-list-specs">
+        <span>Nombre</span>
+        <span>Teléfono</span>
+        <span>Email</span>
+        <span>Grupos</span>
+        <span>Acciones</span>
+    </div>
+        
+    <ul class="contact-list-bucle">
+    @for (contactIndividual of contactservice.contacts; track $index){
+        <app-contact-list-item [contacto]="contactIndividual"></app-contact-list-item>
+    }
+    </ul>
+</div>
+
+
+<div class="container">
+    <form class="data-picker" (ngSubmit)="createContact(newContactForm.value)" #newContactForm = "ngForm" >
+        <div>
+            <label for="firstName">Nombre</label>
+            <input class="input-box" type="text" name="firstName" id="firstName" ngModel required= "true" #firstName ="ngModel">
+            @if (firstName.dirty && firstName.invalid){
+                <p class="error">El nombre es obligatorio y no puede ser una sola letra</p>
+            }
+        </div>
+
+        <div>
+            <label for="lastName">Apellido</label>
+            <input class="input-box" type="text" name= "lastName" id="lastName" ngModel>
+        </div>
+
+        
+        <div>
+            <label for="adress">Dirección</label>
+            <input class="input-box" type="text" name="adress" id="adress" ngModel minlength="3">
+        </div>
+
+        <div>
+            <label for="number">Numero de telefono</label>
+            <input class="input-box" type="text" name="number" id="number" ngModel required="true" minlength="3" maxlength="20" >
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input class="input-box" type="email" name="email" id="email" ngModel minlength="3">
+        </div>
+
+        <div>
+            <label for="image">image</label>
+            <input class="input-box" type="url" name="image" id="image" ngModel minlength="10">
+        </div>  
+
+        <div>
+            <label for="company">Company</label>
+            <input class="input-box" type="text" name="company" id="company" ngModel minlength="3">
+        </div>
+
+        <div>
+            <label for="isFavorite">Favorito</label>
+            <input class="input-box" type="checkbox" name="isFavorite" id="isFavorite" ngModel>
+        </div>
+
+        <button class="button-box">Crear</button>
+
+    </form>
+</div>

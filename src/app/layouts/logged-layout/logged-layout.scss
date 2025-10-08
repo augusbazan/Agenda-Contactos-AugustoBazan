@@ -1,0 +1,43 @@
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    font-size: large;
+    width: 13%;
+    background-color: #1c1a2b;
+    padding: 30px 20px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar a{
+    color: #c1aee5;
+    text-decoration: none; 
+    transition: 250ms;
+}
+
+.sidebar a:hover {
+    color: #9a6af3;
+    font-weight: bolder;
+    font-size: larger;
+    text-decoration: none;
+}
+
+
+.content {
+    flex: 1;
+    background-color: #1e1d35;
+    overflow-y: auto;
+}

@@ -1,0 +1,41 @@
+.contact-list-item{   
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 2.5fr 1.5fr 1fr; //https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns
+    padding: 16px 20px;
+    border-bottom: 1px solid #2a2a48;
+    color: #e8e8e8;
+    align-items: center;
+    transition: 300ms;
+    background: #16213e;
+}
+
+
+
+.contact-list-item:hover {
+    background: #1e2a4a;
+    transform: translateY(-1px);
+    
+}
+
+
+.contact-list-item:last-child {
+    border-bottom: none;
+}
+
+.contact-list-item > span { // solo los span hijos directos de esa clase
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.action-button{
+  background: none;   /* sin fondo */
+  border: none;       /* sin borde */
+  padding: 0;         /* sin espacio extra */
+  margin: 0;          /* sin margen */
+  cursor: pointer;    /* mano al pasar */
+  line-height: 0;     /* elimina espacio vertical */
+  color: white;
+}

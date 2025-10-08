@@ -1,0 +1,149 @@
+.section-title{
+    font-size: 50px;
+    font-weight: bolder;
+    padding: 25px;
+}
+
+.home-nav{
+    font-size: large;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 0 25px;
+}
+
+.home-nav a{
+    color: #d995e6;
+    transition: 250ms;
+}
+
+.home-nav a:hover{
+    transform: translateY(-4px);
+    text-decoration: underline;
+}
+
+.contact-container {
+    max-width: 70%;
+    margin: 0 auto;
+    background: #16213e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.contact-list-specs {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 2.5fr 1.5fr 1fr;
+    font-weight: 600;
+    padding: 16px 20px;
+    background-color: #1e1e3f;
+    color: #ffffff;
+    border-bottom: 2px solid #3d3d5c;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-list-specs span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.contact-list-bucle {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    margin: 30px 0 0 25px;
+
+}
+
+/* Contenedor del formulario */
+.data-picker {
+    background: #16213e;
+    border-radius: 20px;
+    padding: 35px 40px;
+    width: 380px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.9s ease-in-out;
+    color: #fff;
+}
+
+/* Labels */
+.data-picker label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #f1f1f1;
+}
+
+/* Inputs */
+.input-box[type="text"],
+.input-box[type="email"],
+.input-box[type="url"],
+.input-box[type="tel"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-box:focus {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+/* Placeholder */
+.input-box::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Checkbox */
+.input-box[type="checkbox"] {
+  transform: scale(1.2);
+  margin-left: 10px;
+  accent-color: #9b5de5;
+}
+
+/* Mensajes de error */
+.error {
+  font-size: 12px;
+  color: #ff4d6d;
+  margin-top: -10px;
+  margin-bottom: 12px;
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Botón */
+.button-box {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #9b5de5, #6a11cb);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+

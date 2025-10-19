@@ -1,6 +1,10 @@
 <!-- Toda la parte de nuevo contacto luego irá en una nueva pestaña o en una ventana emergente. A elección. -->
 <div id="container" class="card">
- <h2>Nuevo contacto</h2>
+  @if(contactId()){
+  <h2 class="container-title">Editar contacto</h2>
+  } @else {
+    <h2 class="container-title">Nuevo contacto</h2>
+  }
  <form (ngSubmit)="handleFormSubmission(newContactForm)" #newContactForm="ngForm">
   <div>
     <label for="first-name">Nombre*</label>
@@ -15,7 +19,9 @@
   </div>
   <div>
     <label for="phone">Telefono*</label>
-    <input id="phone" name="number" type="text" ngModel required="true" minlength="3" maxlength="30">
+    <input id="phone" name="number" type="text" ngModel required="true" minlength="3" maxlength="30" #phone="ngModel">
+      @if (phone.dirty && phone.invalid) {
+       <p class="error">El teléfono es obligatorio y debe tener al menos 3 caracteres</p>}
   </div>
   <div>
     <label for="email">Email</label>

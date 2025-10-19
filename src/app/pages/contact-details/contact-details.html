@@ -3,17 +3,36 @@
 } @else if(!contacto) {
   <p>No se encontró el contacto</p>
 } @else {
-  <h1>{{contacto!.firstName}} {{contacto!.lastName}}</h1>
-  <p>Email: {{contacto.email}}</p>
-  <p>Teléfono: {{contacto.number}}</p>
-@if (contacto.isFavorite) {
-  <p>⭐</p>
-  <button (click)="toggleFavorite()">Desmarcar favorito</button>
-} @else {
-  <button (click)="toggleFavorite()">Marcar como favorito</button>
-}
-  <p>
-    <a [routerLink]="['/contacts',contactId(),'edit']">Editar</a>
-  </p>
-  <button (click)="contactDelete()">Eliminar</button>
+    <div>
+    <img 
+        [src]="contacto.image" 
+        alt="Foto de perfil de {{contacto.firstName}}"
+        class="profile-image" 
+    >
+    </div>
+
+    <div>
+    <h1>{{contacto!.firstName}} {{contacto!.lastName}}</h1>
+    </div>
+
+    <div>
+        <p>Email: {{contacto.email}}</p>
+        <p>Teléfono: {{contacto.number}}</p>
+        <p>Direccion: {{contacto.address}} </p>
+    </div>
+
+    <div>
+
+        <button (click)="toggleFavorite()" [class.active]="contacto.isFavorite">
+        {{ contacto.isFavorite ? '❤️ Favorito' : '♡ Marcar como favorito' }}
+        </button>
+
+    
+        <p>
+            <a [routerLink]="['/contacts',contactId(),'edit']">Editar</a>
+        </p>
+    
+        <button (click)="contactDelete()">Eliminar</button>
+    
+    </div>
 }

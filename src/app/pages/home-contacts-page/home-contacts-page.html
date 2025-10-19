@@ -10,7 +10,7 @@
         
     <ul class="contact-list-bucle">
     @for (contactoIndividual of contactsService.contacts; track $index){
-        <a [routerLink]="['/contact', contactoIndividual.id]">
+        <a [routerLink]="['/contacts', contactoIndividual.id]">
             <app-contact-list-item [contacto]="contactoIndividual"></app-contact-list-item>
         </a>
         }   
@@ -19,4 +19,6 @@
     
 </div>
 
-<a routerLink="/contacts/new">Nuevo contacto</a>
+<div class="button-box">
+    <a routerLink="/contacts/new">Nuevo contacto</a>
+</div>

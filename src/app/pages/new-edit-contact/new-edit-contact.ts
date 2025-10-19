@@ -20,6 +20,7 @@ export class NewEditContact implements OnInit {
   form = viewChild<NgForm>('newContactForm');
   isLoading = false
 
+
   
 async ngOnInit() {
     if (this.contactId()) {
@@ -32,13 +33,14 @@ async ngOnInit() {
         image: this.contactoOriginal!.image,
         number: this.contactoOriginal!.number,
         company: this.contactoOriginal!.company,
-        isFavorite: this.contactoOriginal!.isFavorite
+        isFavorite: this.contactoOriginal!.isFavorite || false
       })
     }
   }
 
   async handleFormSubmission(form:NgForm){
     this.errorEnBack = false;
+    const isFavoriteValue = form.value.isFavorite;
     const contactData: NewContact ={
       firstName: form.value.firstName,
       lastName: form.value.lastName,
@@ -47,7 +49,7 @@ async ngOnInit() {
       image: form.value.image,
       number: form.value.number,
       company: form.value.company,
-      isFavorite: form.value.isFavorite
+      isFavorite: !!isFavoriteValue
     }
     let res;
     // const res = await this.contactsService.createContact(nuevoContacto);
@@ -62,6 +64,6 @@ async ngOnInit() {
       this.errorEnBack = true;
       return
     };
-    this.router.navigate(["/contact",res.id]);
+    this.router.navigate(["/contacts",res.id]);
   }
 }

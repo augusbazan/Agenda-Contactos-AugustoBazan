@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit, effect } from '@angular/core';
 import {Router, RouterModule } from "@angular/router";
 import { ContactsService } from '../../services/contacts-service';
 import { Contact } from '../../interfaces/contact';
@@ -15,6 +15,7 @@ export class ContactDetails implements OnInit {
   contacto: Contact | undefined;
   loadingContact = false;
   router = inject(Router);
+  
 
   async ngOnInit() {
     if(this.contactId()){
@@ -26,12 +27,14 @@ export class ContactDetails implements OnInit {
     }
   }
 
+
   async contactDelete(){
     if (this.contacto){
       const res = await this.contactService.deleteContact(this.contacto.id);
       if(res) this.router.navigate(['/'])
     }
   }
+
 
   async toggleFavorite(){
     if (this.contacto){

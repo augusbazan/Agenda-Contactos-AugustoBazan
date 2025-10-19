@@ -128,14 +128,19 @@
   animation: shake 0.3s ease-in-out;
 }
 
+a {
+  color: white;
+}
+
 /* Botón */
 .button-box {
-  width: 100%;
+  width: 10%;
   padding: 14px;
   border: none;
   border-radius: 12px;
   background: linear-gradient(135deg, #9b5de5, #6a11cb);
   color: white;
+  text-decoration: none;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;

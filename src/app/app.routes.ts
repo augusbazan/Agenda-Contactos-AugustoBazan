@@ -30,14 +30,17 @@ export const routes: Routes = [
                 path:"",
                 component: HomeContactsPage
             },
-            {
-                path:"contact/:contactId",
-                component: ContactDetails
-            },
+
             {
                 path: "contacts/new",
                 component: NewEditContact
             },
+
+            {
+                path:"contacts/:contactId",
+                component: ContactDetails
+            },
+
             {
                 path: "contacts/:contactId/edit",
                 component: NewEditContact

@@ -4,7 +4,10 @@
 <span>{{contacto().email}}</span>
     @if (contacto().isFavorite) {
         <span>❤️</span>
+    } @else {
+        <span>-</span>
     }
+    
     <span>
         <button class="action-button" (click)="openDeleteModal()"><svg
                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 26 26 " stroke-width="1.5" width="30"

@@ -3,36 +3,62 @@
 } @else if(!contacto) {
   <p>No se encontró el contacto</p>
 } @else {
-    <div>
-    <img 
-        [src]="contacto.image" 
-        alt="Foto de perfil de {{contacto.firstName}}"
-        class="profile-image" 
-    >
-    </div>
 
-    <div>
-    <h1>{{contacto!.firstName}} {{contacto!.lastName}}</h1>
-    </div>
 
-    <div>
-        <p>Email: {{contacto.email}}</p>
-        <p>Teléfono: {{contacto.number}}</p>
-        <p>Direccion: {{contacto.address}} </p>
-    </div>
 
-    <div>
+    <div class="contact-card">
 
-        <button (click)="toggleFavorite()" [class.active]="contacto.isFavorite">
-        {{ contacto.isFavorite ? '❤️ Favorito' : '♡ Marcar como favorito' }}
-        </button>
+        <a class="arrow-back" routerLink=""><svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke-width="1.5" 
+            stroke="white " 
+            width="24"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg> Volver
+        </a>
 
-    
-        <p>
-            <a [routerLink]="['/contacts',contactId(),'edit']">Editar</a>
-        </p>
-    
-        <button (click)="contactDelete()">Eliminar</button>
-    
-    </div>
+        <div class="main-info">
+            <img 
+                [src]="contacto.image" 
+                alt="Foto de perfil de {{contacto.firstName}}"
+                class="profile-image" 
+            >
+            <div class="title">
+                <h1 class="name-title">{{contacto!.firstName}} {{contacto!.lastName}}</h1>
+                <p>{{contacto!.company}}</p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>Email: <strong>{{contacto.email}}</strong></p>
+            <p>Teléfono: <strong>{{contacto.number}}</strong></p>
+            <p>Direccion: <strong>{{contacto.address}}</strong></p>
+        </div>
+
+        <div class="action-buttons">
+
+            <button 
+            (click)="toggleFavorite()" 
+            [class.active]="contacto.isFavorite"
+            class="btn">
+            {{ contacto.isFavorite ? '❤️ Favorito' : '♡ Marcar como favorito' }}
+            </button>
+
+        
+            <p>
+                <a [routerLink]="['/contacts',contactId(),'edit']"
+                class="btn"
+                >Editar</a>
+            </p>
+        
+            <button
+             (click)="contactDelete()"
+             class="btn"
+             >Eliminar</button>
+        
+        </div>
+    </div>    
 }

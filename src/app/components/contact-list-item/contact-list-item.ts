@@ -3,16 +3,18 @@ import { Contact } from '../../interfaces/contact';
 import { ContactsService } from '../../services/contacts-service';
 import Swal from 'sweetalert2'
 import { skip } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list-item',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './contact-list-item.html',
   styleUrl: './contact-list-item.scss'
 })
 export class ContactListItem {
     contacto = input.required<Contact>()
     contactservice = inject(ContactsService)
+    ContactListItem: any;
 
     openDeleteModal() {
       Swal.fire({
@@ -27,4 +29,6 @@ export class ContactListItem {
         this.contactservice.deleteContact(this.contacto().id); 
       });
       }
+
+
 }

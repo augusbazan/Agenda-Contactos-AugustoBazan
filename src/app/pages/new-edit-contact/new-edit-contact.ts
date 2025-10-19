@@ -15,19 +15,31 @@ export class NewEditContact implements OnInit {
   contactsService = inject(ContactsService);
   router = inject(Router)
   errorEnBack = false;
-  idContacto = input<number>();
+  contactId = input<number>();
   contactoOriginal:Contact|undefined = undefined;
-  form = viewChild<ElementRef<Form>>('newContactForm');
-isLoading: any;
+  form = viewChild<NgForm>('newContactForm');
+  isLoading = false
 
   
-  async ngOnInit() {
-    
-  }
+async ngOnInit() {
+    if (this.contactId()) {
+      this.contactoOriginal = await this.contactsService.getContactById(this.contactId()!);
+      this.form()?.setValue({
+        firstName: this.contactoOriginal!.firstName,
+        lastName: this.contactoOriginal!.lastName,
+        address: this.contactoOriginal!.address,
+        email: this.contactoOriginal!.email,
+        image: this.contactoOriginal!.image,
+        number: this.contactoOriginal!.number,
+        company: this.contactoOriginal!.company,
+        isFavorite: this.contactoOriginal!.isFavorite
+      })
+    }
+  }
 
-  async createContact(form:NgForm){
+  async handleFormSubmission(form:NgForm){
     this.errorEnBack = false;
-    const nuevoContacto: NewContact ={
+    const contactData: NewContact ={
       firstName: form.value.firstName,
       lastName: form.value.lastName,
       address: form.value.address,
@@ -37,12 +49,19 @@ isLoading: any;
       company: form.value.company,
       isFavorite: form.value.isFavorite
     }
-
-    const res = await this.contactsService.createContact(nuevoContacto);
+    let res;
+    // const res = await this.contactsService.createContact(nuevoContacto);
+    this.isLoading = true;
+    if(this.contactId()){
+      res = await this.contactsService.editContact({...contactData,id:this.contactId()!})
+    } else {
+      res = await this.contactsService.createContact(contactData);
+    }
+    this.isLoading = false;
     if(!res) {
       this.errorEnBack = true;
       return
     };
-    this.router.navigate(["/contacts",res.id]);
+    this.router.navigate(["/contact",res.id]);
   }
 }

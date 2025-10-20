@@ -1,8 +1,7 @@
 <h2 class="section-title"><span>Agenda de contactos</span></h2>
 
-<div class="button-box">
-    <a routerLink="/contacts/new">Nuevo contacto</a>
-</div>
+
+
 
 <div class="contact-container">
     <div class= "contact-list-specs">
@@ -12,15 +11,18 @@
         <span>Favoritos</span>
         <span>Acciones</span>
     </div>
-        
+            
     <ul class="contact-list-bucle">
-    @for (contactoIndividual of contactsService.contacts; track $index){
-        <a [routerLink]="['/contacts', contactoIndividual.id]">
-            <app-contact-list-item [contacto]="contactoIndividual"></app-contact-list-item>
-        </a>
-        }   
+        @for (contactoIndividual of contactsService.contacts; track $index){
+            <a [routerLink]="['/contacts', contactoIndividual.id]">
+                <app-contact-list-item [contacto]="contactoIndividual"></app-contact-list-item>
+            </a>
+            }   
     </ul>
 
-    
+        
 </div>
 
+<div class="button-box">
+    <a routerLink="/contacts/new">+</a>
+</div>

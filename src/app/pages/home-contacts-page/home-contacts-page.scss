@@ -7,6 +7,7 @@
     margin: 2rem 0 1rem  2rem ;
 }
 
+
 .contact-container {
     max-width: 70%;
     margin: 1.5rem auto;
@@ -54,8 +55,8 @@ a {
 
 /* Botón */
 .button-box {
-  width: 10%;
-  padding: 14px;
+  width: 3%;
+  padding: 10px 0 14px;
   border: none;
   border-radius: 12px;
   margin-left: 43%;
@@ -63,10 +64,13 @@ a {
   color: white;
   text-decoration: none;
   text-align: center;
-  font-size: 16px;
+  font-size: 1.5rem;
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position:relative;
+  right: 33%;
+  bottom: 33.2%;
 }
 
 .button-box:hover {

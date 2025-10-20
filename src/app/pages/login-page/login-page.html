@@ -6,7 +6,7 @@
   
     <div>
       <label for="email">Correo electrónico</label>
-      <input class="input-box" id="email" name="email" type="email" id="email" ngModel #email="ngModel" required="true"
+      <input class="input-box" id="email" name="email" type="email" ngModel #email="ngModel" required="true"
         autocomplete="email">
       @if (email.invalid && !email.pristine) {
       <p class="error">Debe colocar un correo electrónico.</p>
@@ -32,6 +32,5 @@
   
   </form>
 
-  <a routerLink="/">Home</a>
 
 </div>

@@ -1,11 +1,13 @@
-import { Component, inject, input, OnInit, effect } from '@angular/core';
+import { Component, inject, input, OnInit} from '@angular/core';
 import {Router, RouterModule } from "@angular/router";
 import { ContactsService } from '../../services/contacts-service';
 import { Contact } from '../../interfaces/contact';
+import { Spinner } from "../../components/spinner/spinner";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact-details',
-  imports: [RouterModule],
+  imports: [RouterModule, Spinner],
   templateUrl: './contact-details.html',
   styleUrl: './contact-details.scss'
 })
@@ -28,12 +30,22 @@ export class ContactDetails implements OnInit {
   }
 
 
-  async contactDelete(){
-    if (this.contacto){
-      const res = await this.contactService.deleteContact(this.contacto.id);
-      if(res) this.router.navigate(['/'])
-    }
-  }
+
+  openDeleteModal() {
+      Swal.fire({
+          title: 'Desea borrar el contacto?',
+          showDenyButton: true,
+          showCancelButton: true,
+          showConfirmButton: false,
+          cancelButtonText: 'Cancelar',
+          denyButtonText: `Borrar contacto`,
+        }).then((result) => {
+        if (result.isDenied && this.contacto)
+          this.contactService.deleteContact(this.contacto.id); 
+          this.router.navigate(['/'])
+        });
+        }
+  
 
 
   async toggleFavorite(){

@@ -1,9 +1,79 @@
+body{
+    height: 100%;
+    overflow-y: hidden;
+    margin: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.arrow-back{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2rem 2rem ;
+    font-size: 1.2rem;
+    transition: 150ms;
+}
+
+.arrow-back svg{
+    margin-right: 10px;
+}
+
+.arrow-back:hover{
+    transform: translateX(-5px);
+}
+
+
 .card{
-height: 100vh;
+height: 80%;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+}
+
+.mini-card {
+    /* Nueva estructura para alinear label e input */
+    display: flex;
+    justify-content: space-evenly; /* Distribuye espacio entre label e input */
+    align-items: center;
+    width: 90%; /* Ocupa todo el ancho de .data-picker */
+    margin-left: 2rem;
+    margin-bottom: 10px; /* Separación entre campos */
+}
+
+.mini-card label {
+    /* Alinea el texto de la etiqueta a la izquierda */
+    flex-basis: 35%; /* La etiqueta ocupa un tercio del espacio (ajustable) */
+    text-align: left; 
+    font-weight: 500;
+    color: white; /* Mejor contraste */
+}
+
+.mini-card input.input-box {
+    /* Estilo general para campos de texto */
+    flex-basis: 60%; /* El campo de entrada ocupa dos tercios del espacio (ajustable) */
+    margin: 8px 0; /* Espaciado vertical más limpio */
+    padding: 5px 10px; 
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.498);
+}
+
+.mini-card input[type="checkbox"] {
+    /* Estilo específico para el checkbox */
+    width: auto; 
+    margin-left: 10px;
+    box-shadow: none;
+
+}
+
+.favorite-box {
+    /* Simplificado el estilo de la caja de favoritos */
+    justify-content: flex-start; /* Alinea los elementos a la izquierda del formulario */
+    margin-left: 2rem;
+    margin-top: 15px; /* Espacio antes del checkbox */
+    margin-bottom: 25px; /* Espacio antes del botón */
 }
 
 .container-title{
@@ -11,4 +81,52 @@ justify-content: center;
     font-weight: bold;
     margin-bottom: 20px;
     text-shadow: 0 10px 15px rgba(0, 0, 0, 0.692);
+}
+
+
+.data-picker{
+    display: flex;
+    flex-direction: column;
+    /* Ajustado el ancho para ser más adaptable pero mantener el límite */
+    width: 90%; 
+    max-width: 450px; /* Ancho máximo para el formulario */
+    background-color: #8471ae;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.692);
+}
+
+.input-box{
+    border-radius: 10px;
+    padding: 5px 20px;
+    margin:8px 0 8px ;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.498);
+}
+
+
+/* Estilos del botón */
+.button-box{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: small;
+    border-radius: 20px;
+    padding: 8px 25px; /* Ajustado el padding para que se vea mejor */
+    transition: 350ms;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.498);
+    background-color: #f7f7f7; /* Color de fondo claro */
+    border: none;
+    font-weight: bold;
+    margin-top: 10px;
+    max-width: 40%;
+    margin-left: 30%;
+}
+
+.button-box:hover{
+    font-size: medium;
+    cursor: pointer;
+    background-color: #ebebeb; 
+}
+
+.button-box:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }

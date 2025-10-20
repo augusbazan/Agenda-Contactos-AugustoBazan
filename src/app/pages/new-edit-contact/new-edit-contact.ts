@@ -4,10 +4,11 @@ import { Contact, NewContact } from '../../interfaces/contact';
 import { ContactsService } from '../../services/contacts-service';
 import { Router } from '@angular/router';
 import { Spinner } from "../../components/spinner/spinner";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-new-edit-contact',
-  imports: [FormsModule, Spinner],
+  imports: [FormsModule, Spinner, RouterModule],
   templateUrl: './new-edit-contact.html',
   styleUrl: './new-edit-contact.scss'
 })

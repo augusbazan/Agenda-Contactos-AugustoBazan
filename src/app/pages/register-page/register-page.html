@@ -1,9 +1,9 @@
 <div id="container" class="card">
   <form class="data-picker" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
-    <h1 class="container-title">Registrarse</h1>
+    <h1 class="container-title">Crear cuenta</h1>
     <div class="input-container">
       <label for="email">Correo electronico</label>
-      <input class="input-box" id="email" name="email" type="email" id="email" ngModel #email="ngModel" required="true" autocomplete="email">
+      <input class="input-box" id="email" name="email" type="email" ngModel #email="ngModel" required="true" autocomplete="email">
       @if (email.invalid && !email.pristine) {
         <p class="error">Debe colocar un correo electrónico.</p>
       }
@@ -40,16 +40,15 @@
         <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
       }
     </div>
-    <button class="button-box">Iniciar sesión</button>
+    <button class="button-box">Registrarse</button>
     @if (isLoading){
     <app-spinner class="spinner"></app-spinner>}
     
     @if (errorRegister) {
       <p class="error">Error indeterminado, intente nuevamente.</p>
     } 
-    <p>Ya tenés cuenta? <a routerLink="/login">Inicia sesion</a>
+    <p>Ya tenés cuenta? <a routerLink="/login">Inicia sesión</a>
     </p>
-    <a routerLink="/">Home</a>
   </form>
 
 </div>

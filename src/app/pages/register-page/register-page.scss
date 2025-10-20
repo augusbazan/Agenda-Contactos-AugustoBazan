@@ -1,57 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap');
 
-.card{
-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
+.card {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2c2a3e;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #f0f0f0;
 }
 
-.container-title{
-    font-size: x-large;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 0 10px 15px rgba(0, 0, 0, 0.692);
+.data-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; 
+  width: 100%;
+  max-width: 380px; 
+  background-color: #4a466a;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-.data-picker{
-    display: flex;
-    flex-direction: column;
+.container-title {
+  font-size: 1.8rem; 
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.input-container label {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+}
+
+
+.input-box {
+  background-color: #3e3a5a;
+  color: #f0f0f0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+.input-box:focus {
+  outline: none;
+  border-color: #a491d4;
+  box-shadow: 0 0 0 3px rgba(164, 145, 212, 0.5);
+}
+
+.button-box {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-top: 10px;
+  background-color: #875ca0;
+  color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.button-box:hover {
+  background-color: #b8a9e0; 
+}
+
+
+.data-picker > p {
+    font-size: 0.9rem;
+    color: #c0bccc;
     text-align: center;
-    width: 300px;
-    height: 350px;
-    background-color: #8471ae;
-    border-radius: 10px;
-    padding: 50px 50px 80px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.692);
-
+    margin-top: 10px;
 }
 
-.input-box{
-    border-radius: 10px;
-    padding: 5px;
-    margin:8px 0 8px ;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.498);
-
+.data-picker > p a {
+    color: #63a9eb;
+    font-weight: 600;
+    text-decoration: none;
 }
 
-.input-container{
-    display: flex;
-    flex-direction: column;
+.data-picker > p a:hover {
+    text-decoration: underline;
 }
 
-.button-box{
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: small;
-    border-radius: 20px;
-    padding: 5px 15px;
-    transition: 350ms;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.498);
-
+.error {
+    color: #ff8a8a;
+    font-size: 0.85rem;
+    text-align: left;
+    margin-top: 6px;
 }
 
-.button-box:hover{
-    font-size: medium;
-    cursor: pointer;
+.spinner{
+  display: block;
+  margin: 15px auto 0;
 }

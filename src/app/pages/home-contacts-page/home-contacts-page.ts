@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ContactListItem } from "../../components/contact-list-item/contact-list-item";
 import { Contact, NewContact } from '../../interfaces/contact';
@@ -20,3 +20,6 @@ export class HomeContactsPage implements OnInit {
    contactsService = inject(ContactsService)
 
 }
+
+
+

@@ -1,56 +1,90 @@
-<!-- Toda la parte de nuevo contacto luego irá en una nueva pestaña o en una ventana emergente. A elección. -->
+<div class="external-form-div">
+    @if (contactId()) {
+    <a class="arrow-back" [routerLink]="['/contacts',contactId()]"> <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      fill="none" 
+      viewBox="0 0 24 24" 
+      stroke-width="1.5" 
+      stroke="white " 
+      width="24"
+      lass="size-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+      </svg> Volver al contacto
+    </a>
+  } 
+    @else {
+      <a class="arrow-back" routerLink=""> <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        fill="none" 
+        viewBox="0 0 24 24" 
+        stroke-width="1.5" 
+        stroke="white " 
+        width="24"
+        lass="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg> Volver al inicio
+        </a>}  
+      
+  </div>
+
+
+
 <div id="container" class="card">
+
+
   @if(contactId()){
   <h2 class="container-title">Editar contacto</h2>
   } @else {
     <h2 class="container-title">Nuevo contacto</h2>
   }
- <form (ngSubmit)="handleFormSubmission(newContactForm)" #newContactForm="ngForm">
-  <div>
+ <form  class="data-picker" (ngSubmit)="handleFormSubmission(newContactForm)" #newContactForm="ngForm">
+  
+  <div class="mini-card" >
     <label for="first-name">Nombre*</label>
-    <input id="first-name" name="firstName" type="text" ngModel required="true" minlength="2" maxlength="20" #firstName="ngModel">
+    <input class="input-box" id="first-name" name="firstName" type="text" ngModel required="true" minlength="2" maxlength="20" #firstName="ngModel">
     @if (firstName.dirty && firstName.invalid) {
       <p class="error">El nombre es obligatorio y no puede ser una sola letra</p>
     }
   </div>
-  <div>
+  <div class="mini-card">
     <label for="last-name">Apellido</label>
-    <input id="last-name" name="lastName" type="text" ngModel maxlength="20">
+    <input class="input-box" id="last-name" name="lastName" type="text" ngModel maxlength="20">
   </div>
-  <div>
+  <div class="mini-card">
     <label for="phone">Telefono*</label>
-    <input id="phone" name="number" type="text" ngModel required="true" minlength="3" maxlength="30" #phone="ngModel">
+    <input class="input-box" id="phone" name="number" type="text" ngModel required="true" minlength="3" maxlength="30" #phone="ngModel">
       @if (phone.dirty && phone.invalid) {
        <p class="error">El teléfono es obligatorio y debe tener al menos 3 caracteres</p>}
   </div>
-  <div>
+  <div class="mini-card">
     <label for="email">Email</label>
-    <input id="email" name="email" type="email" ngModel maxlength="40">
+    <input  class="input-box" id="email" name="email" type="email" ngModel maxlength="40">
   </div>
-  <div>
+  <div class="mini-card" class="favorite-box">
     <label for="favorite">Favorito</label>
     <input id="favorite" name="isFavorite" type="checkbox" ngModel>
-  </div>
-  <div>
+  </div >
+  <div class="mini-card">
     <label for="address">Direccion</label>
-    <input id="address" name="address" type="text" ngModel minlength="5">
+    <input class="input-box" id="address" name="address" type="text" ngModel minlength="5">
   </div>
-  <div>
+  <div class="mini-card">
     <label for="company">Companía</label>
-    <input id="company" name="company" type="text" ngModel minlength="2">
+    <input class="input-box" id="company" name="company" type="text" ngModel minlength="2">
   </div>
-  <div>
+  <div class="mini-card">
     <label for="image">URL Imagen</label>
-    <input id="image" name="image" type="text" ngModel minlength="10">
+    <input class="input-box" id="image" name="image" type="text" ngModel minlength="10">
   </div>
+
   @if (errorEnBack) {
       <p class="error">Error indeterminado, intente nuevamente.</p>
     } 
 
   @if(contactId()){
-      <button [disabled]="newContactForm.invalid || isLoading">Editar</button>
+      <button class="button-box" [disabled]="newContactForm.invalid || isLoading">Editar</button>
     } @else {
-    <button [disabled]="newContactForm.invalid || isLoading">Crear</button>
+    <button class="button-box" [disabled]="newContactForm.invalid || isLoading">Crear</button>
     }
     @if(isLoading){
       <app-spinner></app-spinner>

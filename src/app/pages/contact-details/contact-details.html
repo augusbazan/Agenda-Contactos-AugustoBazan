@@ -1,5 +1,9 @@
 @if(loadingContact){
-  <p>Cargando contacto...</p>
+    <div class="loading-message">
+        <p>Cargando contacto</p>
+        <app-spinner></app-spinner>
+    </div>
+
 } @else if(!contacto) {
   <p>No se encontró el contacto</p>
 } @else {
@@ -55,7 +59,7 @@
             </p>
         
             <button
-             (click)="contactDelete()"
+             (click)="openDeleteModal()"
              class="btn"
              >Eliminar</button>
         

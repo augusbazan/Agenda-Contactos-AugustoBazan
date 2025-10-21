@@ -5,6 +5,7 @@ import { ContactsService } from '../../services/contacts-service';
 import { Router } from '@angular/router';
 import { Spinner } from "../../components/spinner/spinner";
 import { RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-edit-contact',
@@ -35,9 +36,10 @@ async ngOnInit() {
         number: this.contactoOriginal!.number,
         company: this.contactoOriginal!.company,
         isFavorite: this.contactoOriginal!.isFavorite || false
-      })
-    }
-  }
+    })
+  }
+}
+
 
   async handleFormSubmission(form:NgForm){
     this.errorEnBack = false;
@@ -66,5 +68,54 @@ async ngOnInit() {
       return
     };
     this.router.navigate(["/contacts",res.id]);
+  } 
+
+confirmExit(): void {
+    
+    let route: (string | number)[];
+ 
+    const currentContactId = this.contactId();
+
+    if (currentContactId !== undefined) {
+      route = ['/contacts', currentContactId];
+
+    } else {
+
+      route = ['/']; 
+    }
+
+
+    if (this.form()?.dirty !== true) {
+      this.router.navigate(route);
+      return; 
+    }
+
+    this.changesModal(route);
   }
-}
+
+changesModal(route:(string | number)[]) {
+    Swal.fire({
+        title: "Desea guardar los cambios antes de salir?",
+        icon: "warning",
+        iconColor: "red",
+        position: 'center',
+        showConfirmButton: true,
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Guardar',
+        denyButtonText: 'No guardar',
+        cancelButtonText: 'Cancelar',
+    }).then((result) => {
+    
+        if (result.isConfirmed) {
+            this.handleFormSubmission(this.form()!);
+            Swal.fire('¡Guardado!', 'Tus cambios han sido guardados.', 'success');
+
+        } else if (result.isDenied) {
+            this.router.navigate(route);
+            Swal.fire('Sin cambios', 'No se guardaron los cambios.', 'info');
+
+        } else if (result.isDismissed) {
+        }
+    });
+}}

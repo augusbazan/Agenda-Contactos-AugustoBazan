@@ -1,25 +1,25 @@
 .layout {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .button-box {
-  width: 100%;
-  padding: 10px 40px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #9b5de5, #6a11cb);
-  color: white;
-  text-decoration: none;
-  font-size: small;
-  font-weight: 800;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #9b5de5, #6a11cb);
+    color: white;
+    text-decoration: none;
+    font-size: small;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .button-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .sidebar {
@@ -39,7 +39,7 @@
 }
 
 .sidebar li {
-    margin: 3rem 0 0 1rem;
+    margin: 2rem 0 0 1rem;
 }
 
 

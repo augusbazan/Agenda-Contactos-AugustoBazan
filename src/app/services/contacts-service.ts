@@ -13,7 +13,7 @@ export class ContactsService {
     
   ]
 
-  async getContacts(){
+  async getContacts(): Promise<Contact[]>{
   const res = await fetch("https://agenda-api.somee.com/api/contacts", 
     {
       headers: {
@@ -23,6 +23,8 @@ export class ContactsService {
    )
     const resJson: Contact[] = await res.json()
     this.contacts = resJson   
+
+    return resJson;
   }
 
   async getContactById(id:string | number ){

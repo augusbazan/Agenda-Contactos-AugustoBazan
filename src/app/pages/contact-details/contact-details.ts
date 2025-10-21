@@ -35,19 +35,18 @@ export class ContactDetails implements OnInit {
       Swal.fire({
           title: 'Desea borrar el contacto?',
           showDenyButton: true,
-          showCancelButton: true,
-          showConfirmButton: false,
-          cancelButtonText: 'Cancelar',
-          denyButtonText: `Borrar contacto`,
+          showCancelButton: false,
+          showConfirmButton: true,
+          denyButtonText: 'Cancelar',
+          confirmButtonText: `Borrar contacto`,
         }).then((result) => {
-        if (result.isDenied && this.contacto)
+        if (result.isConfirmed && this.contacto){
           this.contactService.deleteContact(this.contacto.id); 
           this.router.navigate(['/'])
-        });
-        }
+    }
+    });
+  }
   
-
-
   async toggleFavorite(){
     if (this.contacto){
       const res = await this.contactService.setFavorite(this.contacto.id);

@@ -22,12 +22,15 @@
       }
     </div>
     
+    
+    <button class="button-box">Iniciar sesión</button>
+
     @if (isLoading){
     <app-spinner class="spinner"></app-spinner>}
-    <button class="button-box">Iniciar sesión</button>
     @if (errorLogin) {
     <p class="error">Datos de sesión incorrectos, intente nuevamente.</p>
     }
+    
     <p class="create-acc">No tenés cuenta? <a routerLink="/register">Registrate</a></p>
   
   </form>

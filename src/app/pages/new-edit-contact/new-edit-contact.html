@@ -1,6 +1,7 @@
 <div class="external-form-div">
     @if (contactId()) {
-    <a class="arrow-back" [routerLink]="['/contacts',contactId()]"> <svg 
+    <a class="arrow-back"
+      (click)="confirmExit()"> <svg 
       xmlns="http://www.w3.org/2000/svg" 
       fill="none" 
       viewBox="0 0 24 24" 
@@ -82,12 +83,12 @@
     } 
 
   @if(contactId()){
-      <button class="button-box" [disabled]="newContactForm.invalid || isLoading">Editar</button>
+      <button class="button-box" [disabled]="newContactForm.invalid || isLoading">Guardar</button>
     } @else {
     <button class="button-box" [disabled]="newContactForm.invalid || isLoading">Crear</button>
     }
     @if(isLoading){
-      <app-spinner></app-spinner>
+      <app-spinner class="spinner"></app-spinner>
     }
 </form>
 </div>

@@ -5,20 +5,32 @@ import { Contact, NewContact } from '../../interfaces/contact';
 import { AuthService } from '../../services/auth-service';
 import { ContactsService } from '../../services/contacts-service';
 import { FormsModule } from '@angular/forms';
+import { Spinner } from '../../components/spinner/spinner';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-home-contacts-page',
-  imports: [RouterModule, ContactListItem, FormsModule],
+  imports: [RouterModule, ContactListItem, FormsModule, Spinner, CommonModule],
   templateUrl: './home-contacts-page.html',
   styleUrl: './home-contacts-page.scss'
 })
 export class HomeContactsPage implements OnInit {
-  ngOnInit(): void {
-    this.contactsService.getContacts()
-  }
-   authservice = inject(AuthService)
-   contactsService = inject(ContactsService)
+  isLoading = true
+  contacts: Contact[] = [];
+  authservice = inject(AuthService)
+  contactsService = inject(ContactsService)
 
+async ngOnInit(): Promise<void> {
+    try {
+      this.contacts = await this.contactsService.getContacts();
+
+    } catch (error) {
+
+    } finally {
+      this.isLoading = false;
+    }
+  }
 }
 
 

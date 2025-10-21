@@ -20,6 +20,8 @@
 .contact-list-specs {
     display: grid;
     grid-template-columns: 2fr 1.5fr 2.5fr 1.5fr 1fr;
+    justify-items: center;
+    align-items: center;
     font-weight: 600;
     padding: 16px 20px;
     background-color: #1e1e3f;
@@ -30,17 +32,34 @@
     letter-spacing: 0.5px;
 }
 
-.contact-list-specs span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
 .contact-list-bucle {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+
+.contact-list-bucle a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s;
+}
+
+.contact-list-bucle a:hover {
+   background-color: #2a2a4a;
+}
+
+.contact-list-bucle p {
+    display: block; 
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s;
+    padding: 2rem;
+}
+
+.contact-list-bucle p:hover {
+  background-color: #2a2a4a;
 }
 
 .container{
@@ -50,31 +69,38 @@
 
 
 a {
-  color: white;
+    color: white;
 }
 
 /* Botón */
 .button-box {
-  width: 3%;
-  padding: 10px 0 14px;
-  border: none;
-  border-radius: 12px;
-  margin-left: 43%;
-  background: linear-gradient(135deg, #9b5de5, #6a11cb);
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position:relative;
-  right: 33%;
-  bottom: 33.2%;
+    width: 10%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    margin-left: 45%;
+    background: linear-gradient(135deg, #9b5de5, #6a11cb);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: sticky;
+    top: 4%;
+    z-index: 1;
+    margin-bottom: 2rem;
 }
 
 .button-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
+
+
+.spinner{
+    display: block;
+    margin: 15% 50%;
+  }
 

@@ -38,6 +38,7 @@ body {
     flex-direction: row;
     align-items: center;
     transition: 150ms;
+    margin-bottom: 3%;
 }
 
 .arrow-back svg{
@@ -62,8 +63,9 @@ body {
 
 .profile-image{
     margin-top: 20px;
-    border-radius: 50%;
-    width: 150px;
+    border-radius: 45%;
+    max-width: 30%;
+    max-height: 30%;
 }
 
 .main-info{
@@ -78,9 +80,10 @@ body {
 
 .title p{
     text-align: left;
-    margin-left: 10%;
+    margin-left: 15%;
     margin-top: 5px;
     font-size: medium;
+    font-weight: lighter;
 }
 
 .name-title{
@@ -88,7 +91,7 @@ body {
     font-weight: 700;
     color: white; 
     text-align: left;
-    margin-left: 10%;
+    margin-left: 15%;
 }
 
 .contact-info {

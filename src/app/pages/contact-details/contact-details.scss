@@ -16,6 +16,8 @@ body {
     overflow-y: auto; 
 }
 
+
+/*"mensaje de carga centrado*/
 .loading-message{
     width: 100%;
     max-width: 500px;
@@ -63,7 +65,7 @@ body {
 
 .profile-image{
     margin-top: 20px;
-    border-radius: 45%;
+    border-radius: 50%;
     max-width: 30%;
     max-height: 30%;
 }

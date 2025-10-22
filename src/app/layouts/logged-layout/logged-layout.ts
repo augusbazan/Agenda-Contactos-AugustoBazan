@@ -23,11 +23,6 @@ export class LoggedLayout {
     }).then((result) => {
     if (result.isDenied) 
         this.authService.logout();
-        Swal.fire({
-        title: 'Sesión cerrada!',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
-})
      });
   }
 

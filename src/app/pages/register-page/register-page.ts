@@ -36,10 +36,4 @@ export class RegisterPage {
     this.isLoading = false;
     this.errorRegister = true
   }
-
-
-
-
-
-
 }

@@ -2,7 +2,6 @@ import { Component, input, inject } from '@angular/core';
 import { Contact } from '../../interfaces/contact';
 import { ContactsService } from '../../services/contacts-service';
 import Swal from 'sweetalert2';
-import { skip } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -25,9 +24,9 @@ export class ContactListItem {
       showConfirmButton: false,
       cancelButtonText: 'Cancelar',
       denyButtonText: `Borrar contacto`,
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isDenied) {
-        this.contactservice.deleteContact(this.contacto().id);
+        await this.contactservice.deleteContact(this.contacto().id);
         this.router.navigate(['/']);
       }
     });

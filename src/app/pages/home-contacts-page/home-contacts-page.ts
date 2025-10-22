@@ -6,12 +6,12 @@ import { AuthService } from '../../services/auth-service';
 import { ContactsService } from '../../services/contacts-service';
 import { FormsModule } from '@angular/forms';
 import { Spinner } from '../../components/spinner/spinner';
-import { CommonModule } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-home-contacts-page',
-  imports: [RouterModule, ContactListItem, FormsModule, Spinner, CommonModule],
+  imports: [RouterModule, ContactListItem, FormsModule, Spinner],
   templateUrl: './home-contacts-page.html',
   styleUrl: './home-contacts-page.scss'
 })
@@ -21,8 +21,11 @@ export class HomeContactsPage implements OnInit {
   authservice = inject(AuthService)
   contactsService = inject(ContactsService)
 
+
+// Promise<void> indica que la función asíncrona, devuelve una promesa que al completarse de manera exitosa devuelve void ("vacío")
 async ngOnInit(): Promise<void> {
-    try {
+  // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/try...catch
+    try {                                                           
       this.contacts = await this.contactsService.getContacts();
 
     } catch (error) {

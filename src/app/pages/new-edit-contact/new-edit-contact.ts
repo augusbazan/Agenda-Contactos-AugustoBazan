@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, input, OnInit, viewChild } from '@angular/core';
+import { Component, inject, input, OnInit, viewChild } from '@angular/core';
 import { Form, FormsModule, NgForm } from '@angular/forms';
 import { Contact, NewContact } from '../../interfaces/contact';
 import { ContactsService } from '../../services/contacts-service';
@@ -43,7 +43,6 @@ async ngOnInit() {
 
   async handleFormSubmission(form:NgForm){
     this.errorEnBack = false;
-    const isFavoriteValue = form.value.isFavorite;
     const contactData: NewContact ={
       firstName: form.value.firstName,
       lastName: form.value.lastName,
@@ -52,7 +51,7 @@ async ngOnInit() {
       image: form.value.image,
       number: form.value.number,
       company: form.value.company,
-      isFavorite: !!isFavoriteValue
+      isFavorite: form.value.isFavorite,
     }
     let res;
     // const res = await this.contactsService.createContact(nuevoContacto);
@@ -80,7 +79,6 @@ confirmExit(): void {
       route = ['/contacts', currentContactId];
 
     } else {
-
       route = ['/']; 
     }
 
@@ -94,6 +92,7 @@ confirmExit(): void {
   }
 
 changesModal(route:(string | number)[]) {
+  // funcion para preguntar al usuario si desea preservar los cambios realizados en el form
     Swal.fire({
         title: "Desea guardar los cambios antes de salir?",
         icon: "warning",

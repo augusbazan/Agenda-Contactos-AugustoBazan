@@ -42,7 +42,7 @@ export class ContactDetails implements OnInit {
         }).then((result) => {
         if (result.isConfirmed && this.contacto){
           this.contactService.deleteContact(this.contacto.id); 
-          this.router.navigate(['/'])
+          this.router.navigate(['/']);
     }
     });
   }

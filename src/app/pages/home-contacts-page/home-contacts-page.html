@@ -25,8 +25,10 @@
                 <app-contact-list-item [contacto]="contactoIndividual"></app-contact-list-item>
             </a>
              } 
+        <!---https://angular.dev/guide/templates/control-flow#providing-a-fallback-for-for-blocks-with-the-empty-block 
+        Investigue sobre esto ya que no me gustaba que quede vacia la lista sin contactos-->     
         @empty {
-          <p class="empty-list-message">No se encontraron contactos.</p>
+          <p>No se encontraron contactos.</p>
         }
     </ul>
   </div>
